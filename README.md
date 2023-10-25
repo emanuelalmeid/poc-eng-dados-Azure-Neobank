@@ -19,6 +19,8 @@ A base é um arquivo .csv anexado neste repositório onde possui 16 colunas e 10
 ### Grupo de recursos
 Para começar o desenvolvimento do projeto, foi criado um grupo de recursos destinado a manter os recursos que compõem a solução. Esse recurso também traz o benefício de monitorar todos os custos relacionados ao projeto.
 
+<img src="/Imagens/resourcegroup.PNG">
+
 ### Storage account
 Por meio da criação de containers foram criados as três camadas do data lake em modo privado:
 
