@@ -10,9 +10,9 @@ Ainda sobre a arquitetura, o projeto conta com o Azure databricks responsável p
 
 <img src="/Imagens/azure-pipeline-schematic.drawio.png">
 
-### Contexto do negócio
-NeoBank é um banco que está disparando seu crescimento. Visto isso, a empresa está investindo em testes relacionados a cloud para crescer sua infraestrutura dentro da nuvem gerando soluções que escalem de acordo com a velocidade do seu crescimento. Visto isso, foi direcionado para o time de engenharia de dados, realizar uma poc(prova de conceito) disponibilizando dados relacionados a clientes do banco para que o time de análise de dados possa criar relatórios e extrair informações valiosas dos novos clientes e continuar a monitorar os anitigos. 
 
+### Contexto do negócio
+NeoBank é um banco que está disparando seu crescimento. Visto isso, a empresa está investindo em testes relacionados a cloud para crescer sua infraestrutura dentro da nuvem gerando soluções que escalem de acordo com a velocidade do seu crescimento. Visto isso, foi direcionado para o time de engenharia de dados, realizar uma poc(prova de conceito) disponibilizando dados relacionados a clientes do banco para que o time de análise de dados possa criar relatórios e extrair informações valiosas para o negócio.
 ### Base de dados
 A base é um arquivo .csv anexado neste repositório onde possui 16 colunas e 10000 linhas de dados realcionados aos clientes do banco Neobank. Esta poc inclui a ingestão, transformação e carregamento desta dimensão.  
 
@@ -24,27 +24,40 @@ Por meio da criação de containers foram criados as três camadas do data lake 
 
 <img src="/Imagens/containers.PNG">
 
+## ETL
 
-## Ingestão 
+### Ingestão 
 Para extração dos dados e ingestão no data lake foi criado a partir da atividade Copy do Azure Datafactory onde o Source foi definido como uma fonte HTTP o qual está relacionada ao link do arquivo csv disponibilizado neste mesmo repositório e o Source do fluxo conectado a camada bronze do datalake gerando um arquivo com o mesmo nome da fonte. Para realizar esse processo, foi necessário a criação de um link de serviço conectando a storage account ao data factory.
 
 
 <img src="/Imagens/copy.PNG">
 
-## Transformação
-Após a ingestão os dados estarão disponíveis para transformação, foi utilizado Azure databricks conectadose conectando ao data lake para tranformação dos dados gerando três scripts.
+### Transformação
+Após a ingestão os dados estarão disponíveis para transformação, foi utilizado Azure databricks se conectando ao data lake para tranformação dos dados gerando três scripts.
 
+<b>1.</b>  Azure (ADD): Montar conexão entre azure databricks e containers.
 
-## Carregamento 
+<b>2.</b>  Bronze to Silver: Slow change dimension tipo 2.
 
-## Orquestração 
+<b>3.</b>  Silver to Gold: Remoção de dados sensíveis.
+
+Imagem abaixo ilustra as transformações aplicadas no script 2 e 3
+
+<img src="/Imagens/Scripts.drawio.png">
+
+### Carregamento 
+
+### Orquestração 
+Utilizando o Data Factory foi criado ações para os dois notebooks responsáveis pela transformação dos dados orquestrando cada ação e criando a pipeline responsável extrair, transformar e disponibilizar os dados.  
 
 <img src="/Imagens/pipelineADF.PNG">
+
+
 
 ## Dashboard
 
 
-
+## Conclusão
   
 
 
