@@ -11,6 +11,9 @@ Ainda sobre a arquitetura, o projeto conta com o Azure databricks responsável p
 
 <img src="/Imagens/azure-pipeline-schematic.drawio.png">
 
+### Contexto do negócio
+NeoBank é um banco que está disparando seu crescimento. Visto isso, a empresa está investindo em testes relacionados a cloud para crescer sua infraestrutura dentro da nuvem gerando soluções que escalem de acordo com a velocidade do seu crescimento. Visto isso, foi direcionado para o time de engenharia de dados para realizar uma poc(prova de conceito), disponibilizando os dados relacionados a clientes do banco para que o time de análise de dados possa criar relatórios e extrair informações valiosas dos novos clientes e continuar a monitorar os anitigos. 
+
 ### Base de dados
 A base é um arquivo .csv anexado neste repositório onde possui 14 colunas e 10000 linhas de dados realcionados aos clientes do banco Neobank. Esta poc inclui a ingestão, transformação e carregamento desta dimensão.  
 
@@ -20,7 +23,6 @@ Para começar o desenvolvimento do projeto, foi criado um grupo de recursos dest
 ### Storage accounts 
 Por meio da criação de containers foram criados as três camadas do data lake em modo privado:
 
-### Data Factory
 
 ## Ingestão 
 Para extração dos dados e ingestão no data lake foi criado a partir da atividade Copy do Azure Datafactory onde o Source foi definido como uma fonte HTTP o qual está relacionada ao link do arquivo csv disponibilizado neste mesmo repositório e o Source do fluxo conectado a camada bronze do datalake gerando um arquivo com o mesmo nome da fonte. Para realizar esse processo, foi necessário a criação de um link de serviço conectando a storage account ao data factory.
@@ -29,6 +31,13 @@ foto pipeline
 
 
 ## Transformação
+Após a ingestão os dados estarão disponíveis para transformação de acordo 
+
+## Carregamento 
+
+## Orquestração 
+## Dashboard
+
 
 
   
