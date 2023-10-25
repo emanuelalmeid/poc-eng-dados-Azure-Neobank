@@ -19,7 +19,7 @@ A base é um arquivo .csv anexado neste repositório onde possui 16 colunas e 10
 ### Grupo de recursos
 Para começar o desenvolvimento do projeto, foi criado um grupo de recursos destinado a manter os recursos que compõem a solução. Esse recurso também traz o benefício de monitorar todos os custos relacionados ao projeto.
 
-### Storage accounts 
+### Storage account
 Por meio da criação de containers foram criados as três camadas do data lake em modo privado:
 
 <img src="/Imagens/containers.PNG">
@@ -28,15 +28,19 @@ Por meio da criação de containers foram criados as três camadas do data lake 
 ## Ingestão 
 Para extração dos dados e ingestão no data lake foi criado a partir da atividade Copy do Azure Datafactory onde o Source foi definido como uma fonte HTTP o qual está relacionada ao link do arquivo csv disponibilizado neste mesmo repositório e o Source do fluxo conectado a camada bronze do datalake gerando um arquivo com o mesmo nome da fonte. Para realizar esse processo, foi necessário a criação de um link de serviço conectando a storage account ao data factory.
 
-foto pipeline
 
+<img src="/Imagens/copy.PNG">
 
 ## Transformação
-Após a ingestão os dados estarão disponíveis para transformação de acordo 
+Após a ingestão os dados estarão disponíveis para transformação, foi utilizado Azure databricks conectadose conectando ao data lake para tranformação dos dados gerando três scripts.
+
 
 ## Carregamento 
 
 ## Orquestração 
+
+<img src="/Imagens/pipelineADF.PNG">
+
 ## Dashboard
 
 
