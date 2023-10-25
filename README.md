@@ -23,6 +23,8 @@ Para começar o desenvolvimento do projeto, foi criado um grupo de recursos dest
 ### Storage accounts 
 Por meio da criação de containers foram criados as três camadas do data lake em modo privado:
 
+<img src="/Imagens/containers.PNG">
+
 
 ## Ingestão 
 Para extração dos dados e ingestão no data lake foi criado a partir da atividade Copy do Azure Datafactory onde o Source foi definido como uma fonte HTTP o qual está relacionada ao link do arquivo csv disponibilizado neste mesmo repositório e o Source do fluxo conectado a camada bronze do datalake gerando um arquivo com o mesmo nome da fonte. Para realizar esse processo, foi necessário a criação de um link de serviço conectando a storage account ao data factory.
