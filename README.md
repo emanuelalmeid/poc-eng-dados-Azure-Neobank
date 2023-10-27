@@ -4,17 +4,17 @@ Welcome!! 🚀
 
 Esse projeto se baseia na tendência onde cada vez mais é necessário riqueza, qualidade, escalabilidade e segurança dos dados para gerar insights e valor ao negócio. Dessa forma, é proposta uma infraestrutura utilizando a cloud Azure para coletar, processar e armazenar os dados de forma escalável.
 
-Para isso foi uma proposto uma arquitetura utilizando Data lake storage Gen 2 com três camadas sendo a bronze responsável pelo armazenamento dos dados originais em formato CSV, a silver armazenando os dados e utilizando o slow changing dimension tipo 2 para realizar a historização e por fim a camada ouro que estará disponível para armazenar dados mais estruturados para análise, será utilizada para remoção de dados sensíveis que não podem ser disponibilizados diretamente para os analistas.
-Ainda sobre a arquitetura, o projeto conta com o Azure databricks responsável para realizar as transformações em cada camadas do data lake, Azure Factory para ingestão dos dados, orquestração e ativação dos notebooks de forma periódica e o Azure Synapse Analytics com a função de copiar e armazenar os dados da camada ouro e disponibilizar-los para a ferramenta de dataviz que será o PowerBi.
+Para isso foi uma proposto uma arquitetura utilizando Data lake storage Gen 2 com três camadas sendo a bronze responsável pelo armazenamento dos dados originais em formato CSV, a silver armazenando os dados e utilizando o slow changing dimension tipo 2 para realizar a historização e pôr fim a camada ouro que estará disponível para armazenar dados mais estruturados para análise, será utilizada para remoção de dados sensíveis que não podem ser disponibilizados diretamente para os analistas.
+Ainda sobre a arquitetura, o projeto conta com o Azure databricks responsável para realizar as transformações em cada camadas do data lake, Azure Factory para ingestão dos dados, orquestração e ativação dos notebooks de forma periódica e o Azure Synapse Analytics com a função de copiar e armazenar os dados da camada ouro e disponibilizá-los para a ferramenta de dataviz que será o PowerBi.
 
 
 <img src="/Imagens/azure-pipeline-schematic.drawio.png">
 
 
 ### Contexto do negócio
-NeoBank é um banco que está disparando seu crescimento. Visto isso, a empresa está investindo em testes relacionados a cloud para crescer sua infraestrutura dentro da nuvem gerando soluções que escalem de acordo com a velocidade do seu crescimento. Visto isso, foi direcionado para o time de engenharia de dados, realizar uma poc(prova de conceito) disponibilizando dados relacionados a clientes do banco para que o time de análise de dados possa criar relatórios e extrair informações valiosas para o negócio.
+NeoBank é um banco que está disparando seu crescimento. Visto isso, a empresa está investindo em testes relacionados a cloud para crescer sua infraestrutura dentro da nuvem gerando soluções que escalem de acordo com a velocidade do seu crescimento. Visto isso, foi direcionado para o time de engenharia de dados, realizar uma poc (prova de conceito) disponibilizando dados relacionados a clientes do banco para que o time de análise de dados possa criar relatórios e extrair informações valiosas para o negócio.
 ### Base de dados
-A base é um arquivo .csv anexado neste repositório onde possui 16 colunas e 10000 linhas de dados realcionados aos clientes do banco Neobank. Esta poc inclui a ingestão, transformação e carregamento desta dimensão.  
+A base é um arquivo .csv anexado neste repositório onde possui 16 colunas e 10000 linhas de dados relacionados aos clientes do banco Neobank. Esta poc inclui a ingestão, transformação e carregamento desta dimensão.  
 
 ### Grupo de recursos
 Para começar o desenvolvimento do projeto, foi criado um grupo de recursos destinado a manter os recursos que compõem a solução. Esse recurso também traz o benefício de monitorar todos os custos relacionados ao projeto.
@@ -35,7 +35,7 @@ Para extração dos dados e ingestão no data lake foi criado a partir da ativid
 <img src="/Imagens/copy.PNG">
 
 ### Transformação
-Após a ingestão os dados estarão disponíveis para transformação, foi utilizado Azure databricks se conectando ao data lake para tranformação dos dados gerando três scripts.
+Após a ingestão os dados estarão disponíveis para transformação, foi utilizado Azure databricks se conectando ao data lake para transformação dos dados gerando três scripts.
 
 <b>1.</b>  Azure (ADD): Montar conexão entre azure databricks e containers.
 
@@ -48,7 +48,7 @@ Imagem abaixo ilustra as transformações aplicadas no script 2 e 3
 <img src="/Imagens/Scripts.drawio.png">
 
 ### Carregamento 
-A partir do Azure Synapse Analytics foi criado um bando de dados sem servidor. A partir dele foi criado uma tabela externa que reflete o conteudo do arquivo parquet encontrado na camada gold.
+A partir do Azure Synapse Analytics foi criado um bando de dados sem servidor. A partir dele foi criado uma tabela externa que reflete o conteúdo do arquivo parquet encontrado na camada gold.
 
 <img src="/Imagens/TABLEXTERNA.PNG">
 
@@ -74,8 +74,6 @@ Utilizando o Data Factory foi criado ações para os dois notebooks responsávei
 Para validar a pipeline e garantir que os dados estejam chegando ao seu destino final, foi a partir do banco de dados importado os dados para o Power Bi desktop. Dessa forma, foi elaborado um simples dashboard para realizar a visualização dos dados da poc.
 
 <img src="/Imagens/Power BI.PNG">
-
-## Conclusão
   
 
 
