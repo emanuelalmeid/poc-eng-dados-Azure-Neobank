@@ -4,7 +4,7 @@ Welcome!! 🚀
 
 Esse projeto se baseia na tendência onde cada vez mais é necessário riqueza, qualidade, escalabilidade e segurança dos dados para gerar insights e valor ao negócio. Dessa forma, é proposta uma infraestrutura utilizando a cloud Azure para coletar, processar e armazenar os dados de forma escalável.
 
-Para isso foi uma proposto uma arquitetura utilizando Data lake storage Gen 2 com três camadas sendo a bronze responsável pelo armazenamento dos dados originais em formato CSV, a silver armazenando os dados e utilizando o slow changing dimension tipo 2 para realizar a historização e pôr fim a camada ouro que estará disponível para armazenar dados mais estruturados para análise, será utilizada para remoção de dados sensíveis que não podem ser disponibilizados diretamente para os analistas.
+Para isso foi uma proposto uma arquitetura utilizando Data lake storage Gen 2 com três camadas sendo a bronze responsável pelo armazenamento dos dados originais em formato CSV, a silver armazenando os dados e utilizando o slow changing dimension tipo 2 para realizar a historização e por fim a camada ouro que estará disponível para armazenar dados mais estruturados para análise, será utilizada para remoção de dados sensíveis que não podem ser disponibilizados diretamente para os analistas.
 Ainda sobre a arquitetura, o projeto conta com o Azure databricks responsável para realizar as transformações em cada camadas do data lake, Azure Factory para ingestão dos dados, orquestração e ativação dos notebooks de forma periódica e o Azure Synapse Analytics com a função de copiar e armazenar os dados da camada ouro e disponibilizá-los para a ferramenta de dataviz que será o PowerBi.
 
 
