@@ -45,7 +45,7 @@ Após a ingestão os dados estarão disponíveis para transformação, foi utili
 
 Imagem abaixo ilustra as transformações aplicadas no script 2 e 3
 
-<img src="/Imagens/Scripts.drawio.png">
+<img src="/Imagens/Scripts.png">
 
 ### Carregamento 
 A partir do Azure Synapse Analytics foi criado um bando de dados sem servidor. A partir dele foi criado uma tabela externa que reflete o conteúdo do arquivo parquet encontrado na camada gold.
