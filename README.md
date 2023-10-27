@@ -48,6 +48,20 @@ Imagem abaixo ilustra as transformações aplicadas no script 2 e 3
 <img src="/Imagens/Scripts.drawio.png">
 
 ### Carregamento 
+A partir do Azure Synapse Analytics foi criado um bando de dados sem servidor. A partir dele foi criado uma tabela externa que reflete o conteudo do arquivo parquet encontrado na camada gold.
+
+<img src="/Imagens/TABLEXTERNA.PNG">
+
+Para criação da tabela externa e visualização dos dados com segurança, foram criados 3 scripts:
+
+<b>1.</b>  Master Key
+
+<b>2.</b>  CREDENCIAL
+
+<b>3.</b>  external table
+
+<img src="/Imagens/SCRIPTSASA.PNG">
+
 
 ### Orquestração 
 Utilizando o Data Factory foi criado ações para os dois notebooks responsáveis pela transformação dos dados orquestrando cada ação e criando a pipeline responsável extrair, transformar e disponibilizar os dados.  
@@ -57,7 +71,9 @@ Utilizando o Data Factory foi criado ações para os dois notebooks responsávei
 
 
 ## Dashboard
+Para validar a pipeline e garantir que os dados estejam chegando ao seu destino final, foi a partir do banco de dados importado os dados para o Power Bi desktop. Dessa forma, foi elaborado um simples dashboard para realizar a visualização dos dados da poc.
 
+<img src="/Imagens/Power BI.PNG">
 
 ## Conclusão
   
